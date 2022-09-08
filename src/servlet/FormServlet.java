@@ -54,13 +54,11 @@ public class FormServlet extends HttpServlet {
 			}
 		}
 
-		//表示するメッセージを設定
-		String msg = name + "さん(" + gender + ")を登録しました";
-
+		//エラーの確認
 		if (errorMsg.length() != 0) {
 			//HttpSessionインスタンスの取得
 			HttpSession session = request.getSession();
-			//セクションスコープにインスタンス取得
+			//セッションスコープにインスタンス取得
 			session.setAttribute("errorMsg", errorMsg);
 
 			//リダイレクトパス
@@ -68,6 +66,10 @@ public class FormServlet extends HttpServlet {
 			//リダイレクト
 			response.sendRedirect(rdPath);
 		} else {
+			//フォワードの結果メッセージ
+			String msg = name + "さん(" + gender + ")を登録しました";
+			request.setAttribute("msg", msg);
+
 			String fwPath = "/WEB-INF/jsp/forwardPage.jsp";
 			RequestDispatcher dispatch = request.getRequestDispatcher(fwPath);
 			dispatch.forward(request, response);

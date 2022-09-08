@@ -1,5 +1,9 @@
 <%@page import="model.Health"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<!--
+＊健康診断の結果画面
+＊オートインデントを使いました。
+-->
 <%
 Health health = (Health)request.getAttribute("health");
 %>

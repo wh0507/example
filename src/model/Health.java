@@ -2,7 +2,7 @@ package model;
 
 import java.io.Serializable;
 
-//JavaBeans
+//JavaBeans　（Health情報）
 public class Health implements Serializable {
 
 	private String name, bodyType;

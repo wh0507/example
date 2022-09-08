@@ -52,7 +52,7 @@ public class HealthCheck extends HttpServlet {
 		//リクエストスコープ保存
 		request.setAttribute("health", health);
 
-		//フィワード
+		//フォワード
 		String fwPath = "WEB-INF/jsp/healthCheckResult.jsp";
 		RequestDispatcher dispatcher = request.getRequestDispatcher(fwPath);
 		dispatcher.forward(request, response);
