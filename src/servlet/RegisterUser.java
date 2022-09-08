@@ -14,21 +14,19 @@ import model.RegisterUserLogic;
 import model.User;
 
 /**
- * Servlet implementation class RegisterUser
+ * オートインデント使いました
  */
 @WebServlet("/RegisterUser")
 public class RegisterUser extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException  {
+			throws ServletException, IOException {
 		//フォワード先
-
 		String forwardPath = null;
 
 		//サーブレットクラスの動作を決定する「action」の値を
 		//リクエストパラメータから取得
-
 		String action = request.getParameter("action");
 
 		//「登録の開始」をリクエストされたときの処理
@@ -50,7 +48,6 @@ public class RegisterUser extends HttpServlet {
 
 			//不要となったセクションインスタンス削除
 			session.removeAttribute("registerUser");
-
 			forwardPath = "/WEB-INF/jsp/registerDone.jsp";
 		}
 
@@ -68,17 +65,15 @@ public class RegisterUser extends HttpServlet {
 		String pass = request.getParameter("pass");
 
 		String msg = "";
-
-		if (!name.equals("姜又熙") || name != null) {
-			msg = "名前が「姜又熙」ではありません。";
+		//自分の名前確認
+		if (!name.equals("姜又熙") || name == null) {
+			msg = "エラー：名前が「姜又熙」ではありません。";
 			request.setAttribute("msg", msg);
-			//フォワード
-			RequestDispatcher dispatcher = request.getRequestDispatcher("/RegisterUser");
+			//ログイン画面にフォワード
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/registerForm.jsp");
 			dispatcher.forward(request, response);
-//			response.sendRedirect("/RegisterUser");
 			return;
 		}
-
 
 		//登録するユーザー情報を設定
 		User registerUser = new User(id, name, pass);

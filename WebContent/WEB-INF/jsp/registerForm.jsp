@@ -1,21 +1,26 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-    <%
-    String msg = "";
-    if(request.getAttribute("msg") != null){
-		msg = "";
-    }else{
-    	msg = request.getAttribute("msg").toString();
-    }
-    %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%
+//msgリクエスト確認
+String msg = (String) request.getAttribute("msg");
+if (request.getAttribute("msg") != null) {
+	msg = request.getAttribute("msg").toString();
+} else {
+	msg = "";
+}
+%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>ユーザー登録</title>
+<style>
+p {
+	color: red;
+}
+</style>
 </head>
 <body>
-<p><%=msg %></p>
+	<p><%=msg%></p>
 	<form action="/example/RegisterUser" method="post">
 		ログインID：<input type="text" name="id"><br>
 		パスワード：<input type="password" name="pass"><br>
