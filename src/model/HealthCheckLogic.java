@@ -5,8 +5,8 @@ public class HealthCheckLogic {
 	public void execute(Health health) {
 
 		//BMI計算
-		int weight = health.getWeight();
-		int height = health.getHeight();
+		double weight = health.getWeight();
+		double height = health.getHeight();
 		double bmi = weight / (height / 100.0 * height / 100.0);
 		bmi = Math.round(bmi * 100) / 100.0;	//小数第2位を四捨五入
 		health.setBmi(bmi);
@@ -21,5 +21,6 @@ public class HealthCheckLogic {
 			bodyType = "肥満";
 		}
 		health.setBodyType(bodyType);
+
 	}
 }

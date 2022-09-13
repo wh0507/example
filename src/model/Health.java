@@ -6,8 +6,20 @@ import java.io.Serializable;
 public class Health implements Serializable {
 
 	private String name, bodyType;
-	private int age, height, weight;
-	private double bmi;
+	private int age;
+	private double height, weight, bmi;
+
+	public Health() {
+
+	}
+
+	public Health(String name, int age, double height, double weight, double bmi) {
+		this.name = name;
+		this.age = age;
+		this.height = height;
+		this.weight = weight;
+		this.bmi = bmi;
+	}
 
 	public String getName() {
 		return name;
@@ -33,19 +45,19 @@ public class Health implements Serializable {
 		this.age = age;
 	}
 
-	public int getHeight() {
+	public double getHeight() {
 		return height;
 	}
 
-	public void setHeight(int height) {
+	public void setHeight(double height) {
 		this.height = height;
 	}
 
-	public int getWeight() {
+	public double getWeight() {
 		return weight;
 	}
 
-	public void setWeight(int weight) {
+	public void setWeight(double weight) {
 		this.weight = weight;
 	}
 
